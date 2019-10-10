@@ -29,29 +29,17 @@ async function getJormungandrRest(query) {
   }
 };
 
-app.get('/stake', async (req, res) => {
-  let data = await getJormungandrRest('stake');
-  res.send(JSON.stringify(data));
-});
+async function createApi(path, jorApi) {
+  app.get(path, async (req, res) => {
+    let data = await getJormungandrRest(jorApi);
+    res.send(JSON.stringify(data));
+  });
+}
 
-app.get('/transactions', async (req, res) => {
-  let data = await getJormungandrRest('utxo');
-  res.send(JSON.stringify(data));
-});
-
-app.get('/nodestats', async (req, res) => {
-  let data = await getJormungandrRest('node/stats');
-  res.send(JSON.stringify(data));
-});
-
-app.get('/fragmentlogs', async (req, res) => {
-  let data = await getJormungandrRest('fragment/logs');
-  res.send(JSON.stringify(data));
-});
-
-app.get('/leaders', async (req, res) => {
-  let data = await getJormungandrRest('leaders');
-  res.send(JSON.stringify(data));
-});
+createApi('/stake', 'stake');
+createApi('/transactions', 'utxo');
+createApi('/nodestats', 'node/stats');
+createApi('/fragmentlogs', 'fragment/logs');
+createApi('/leaders', 'leaders');
 
 server.listen(querynodePort, querynodePublicAddress);

@@ -1,6 +1,6 @@
 {
   "name": "querynode",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A small nodejs instance to query jormungandr api locally",
   "main": "app.js",
   "author": "standardize network",
