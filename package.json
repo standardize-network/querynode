@@ -1,0 +1,17 @@
+{
+  "name": "querynode",
+  "version": "0.1.0",
+  "description": "A small nodejs instance to query jormungandr api locally",
+  "main": "app.js",
+  "author": "standardize network",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/standardize-network/querynode"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "express": "^4.17.1",
+    "moment": "^2.24.0"
+  }
+}
