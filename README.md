@@ -29,12 +29,22 @@ npm i --global forever
 # then you can do
 forever start app.js
 
- # afterwords you can see your running processes here:
+# afterwords you can see your running process and PID-NR here:
+forever list
 
- forever list
-
- #and for stopping / restarting:
-
- forever restart PID-NR
- forever stop PID-NR
+# and for stopping / restarting:
+forever restart PID-NR
+forever stop PID-NR
 ```
+
+## Jörmungandr rest api covered:
+
+| Jörmungandr api  | querynode api                              |
+| ---------------- | ------------------------------------------ |
+| `/node/stats`    | `http://YOUR-IP-ADDRESS/5566/nodestats`    |
+| `/stake`         | `http://YOUR-IP-ADDRESS/5566/stake`        |
+| `/fragment/logs` | `http://YOUR-IP-ADDRESS/5566/fragmentlogs` |
+| `/utxo`          | `http://YOUR-IP-ADDRESS/5566/transactions` |
+| `/leaders`       | `http://YOUR-IP-ADDRESS/5566/leaders`      |
+
+You can add own api requests, by adding `createApi('/stake', 'stake');` function calls in the `app.js` file. First parameter is the api you can query on your own IP, so your free to choose any name and the second, what comes after `/api/v0/` from Jörmungandr, **without** initial slash.
